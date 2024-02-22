@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content= "width=device-width, user-scalable=no">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="color.css">
+</head>
+<body>
+    <div class="nav">Drum Kit</div>
+    <div class="main">
+        
+        <div class="container">
+            <div data-key="65"  id="65" class="key">
+                <kbd>A</kbd>
+                <!-- <span class="sound">clap</span> -->
+            </div>
+            <div  data-key="83"   id="83" class="key">
+                <kbd>S</kbd>
+                <!-- <span class="sound">hihat</span> -->
+
+            </div>
+            <div data-key="68"  id="68" class="key">
+                <kbd>D</kbd>
+                <!-- <span class="sound">kick</span> -->
+
+            </div>
+            <div data-key="70"  id="70" class="key">
+                <kbd>F</kbd>
+                <!-- <span class="sound">openhat</span> -->
+
+            </div>
+            <div data-key="71"  id="71"  class="key">
+                <kbd>G</kbd>
+                <!-- <span class="sound">boom</span> -->
+
+            </div>
+            <div data-key="72"  id="72" class="key">
+                <kbd>H</kbd>
+              
+
+            </div>
+            <div data-key="74"  id="74" class="key">
+                <kbd>J</kbd>
+           
+
+            </div>
+            <div data-key="75"  id="75" class="key">
+                <kbd>K</kbd>
+             
+
+            </div>
+        
+           
+        </div>
+    </div>
+
+    <audio data-key="65" src="808_6.wav"></audio>
+    <audio data-key="83" src="open-hi-hat.wav"></audio>
+    <audio data-key="68" src="909CX 49 CS1 8.wav"></audio>
+    <audio data-key="70" src="909CX 35 BD1  4.wav"></audio>
+    <audio data-key="71" src="808_K.wav"></audio>
+    <audio data-key="72"  src="808_S.wav"></audio>
+    <audio data-key="74" src="909CX 38 SN1 6.wav"></audio>
+    <audio data-key="75" src="909CX 51 RD2 8.wav"></audio>
+    <audio  data-key="76" src="909CX 45 MTL 8.wav"></audio>
+
+
+    
+</body>
+
+<script>
+
+    //keybord
+    document.addEventListener('keydown',(e)=>{
+        
+       
+        
+        let aud=document.querySelector(`audio[data-key="${e.keyCode}"]`)
+        if(!aud) return
+        aud.currentTime=0;
+        aud.play()
+    })
+
+
+    // mouse
+ 
+    document.querySelectorAll('.key').forEach((k)=>{
+        // console.log(k.id);
+        k.addEventListener('click',(e)=>{
+            
+            let a=document.querySelector(`audio[data-key="${k.id}"]`)
+            a.currentTime=0;
+            a.play();
+
+        })
+       
+
+
+    })
+
+</script>
+</html>
